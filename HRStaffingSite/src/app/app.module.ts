@@ -14,6 +14,9 @@ import { MobileappIndexComponent } from './mobileapp-index/mobileapp-index.compo
 import { ClientsfeedbackIndexComponent } from './clientsfeedback-index/clientsfeedback-index.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderSearchComponent } from './header-search/header-search.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { ContactComponent } from './views/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +32,13 @@ import { HeaderSearchComponent } from './header-search/header-search.component';
     MobileappIndexComponent,
     ClientsfeedbackIndexComponent,
     FooterComponent,
-    HeaderSearchComponent
+    HeaderSearchComponent,
+    NavbarComponent,
+    ContactComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent]
