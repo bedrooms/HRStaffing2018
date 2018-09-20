@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,6 +18,7 @@ import { HeaderSearchComponent } from './header-search/header-search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ContactComponent } from './views/contact/contact.component';
+import { IndexBodyComponent } from './views/index-body/index-body.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,13 @@ import { ContactComponent } from './views/contact/contact.component';
     FooterComponent,
     HeaderSearchComponent,
     NavbarComponent,
-    ContactComponent
+    ContactComponent,
+    IndexBodyComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SlideshowModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent]

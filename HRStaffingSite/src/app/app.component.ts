@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +13,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class AppComponent {
   title = 'HRStaffingSite';
-  router;
+  HideHeader = false;
   constructor (r: Router){
-    this.router = r;
-    console.log(this.router.url);
+    r.events.forEach((event) => {
+      if(event instanceof NavigationStart) {
+        console.log("event -->", event);
+        console.log("event.url -->", event.url);
+      }
+      // NavigationEnd
+      // NavigationCancel
+      // NavigationError
+      // RoutesRecognized
+    });
   }
 }

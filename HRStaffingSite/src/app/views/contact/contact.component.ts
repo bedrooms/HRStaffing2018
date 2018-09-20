@@ -10,8 +10,8 @@ export class ContactComponent implements OnInit {
 
   router;
   constructor (r: Router){
-    this.router = r;
-    console.log(this.router.url);
+    // this.router = r;
+    // console.log(this.router.url);
   }
 
   ngOnInit() {
