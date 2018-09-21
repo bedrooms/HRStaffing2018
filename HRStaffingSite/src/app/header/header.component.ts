@@ -11,11 +11,11 @@ import {SlideshowModule, IImage} from 'ng-simple-slideshow';
 export class HeaderComponent {
 
   imageUrls: (string | IImage)[] = [
-    { url: 'assets/images/1.jpg', caption: 'The first slide', href: '#config' },
-    { url: 'assets/images/2.jpg', clickAction: () => alert('custom click function') },
-    { url: 'assets/images/3.jpg', caption: 'Apple TV', href: 'https://www.apple.com/' },    
-    { url: 'assets/images/4.jpg', caption: 'Apple TV', href: 'https://www.apple.com/' },    
-    { url: 'assets/images/6.jpg', caption: 'Apple TV', href: 'https://www.apple.com/' }
+    { url: 'assets/images/slider3.jpg'},
+    { url: 'assets/images/slider4.jpg' },
+    { url: 'assets/images/slider2.jpg' },    
+    { url: 'assets/images/slider6.jpg'},    
+    { url: 'assets/images/slider1.jpg' }
   ];
   height: string = '800px';
   minHeight: string;
@@ -24,7 +24,7 @@ export class HeaderComponent {
   disableSwiping: boolean = false;
   autoPlay: boolean = true;
   autoPlayInterval: number = 3333;
-  stopAutoPlayOnSlide: boolean = true;
+  stopAutoPlayOnSlide: boolean = false;
   debug: boolean = false;
   backgroundSize: string = 'cover';
   backgroundPosition: string = 'center center';
@@ -44,19 +44,8 @@ export class HeaderComponent {
     'assets/images/3.jpg'
  ];
 
-  constructor (r: Router){
-    r.events.forEach((event) => {
-      if(event instanceof NavigationStart) {
-        console.log("event HEADER-->", event);
-        console.log("event.url HEADER-->", event.url);
-      }
-      // NavigationEnd
-      // NavigationCancel
-      // NavigationError
-      // RoutesRecognized
-    });
-  }
+  constructor (private r: Router){
 
-  
+  }
 
 }

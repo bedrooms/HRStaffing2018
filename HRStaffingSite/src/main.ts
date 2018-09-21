@@ -11,6 +11,6 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-.then(init => console.log('init AppModule-->', init))
+//.then(init => console.log('init AppModule-->', init))
   .catch(err => console.log(err));
 

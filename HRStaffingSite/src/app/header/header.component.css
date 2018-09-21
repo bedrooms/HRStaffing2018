@@ -2,35 +2,30 @@
   position: relative;
 }
 
-/* Make the image responsive */
-.cont img {
- opacity: 0.2;
-}
-
 /* Style the button and place it in the middle of the container/image */
 .cont .navBar {
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   color: white;
   font-size: 16px;
- width: 80%;
-  cursor: pointer;
-  border-radius: 5px;
+  width: 100%;  
+  background: url(../../../src/assets/images/dots.png);
+  height: 30%;
 }
 
 .cont .searchBar {
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     color: white;
     font-size: 16px;
-    width: 80%;
+    width: 100%;
     border: none;
-    cursor: pointer;
-    border-radius: 5px;
+    background: url(../../../src/assets/images/dots.png);
+    height: 70%;
   }

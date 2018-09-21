@@ -1,2 +1,23 @@
-<app-header ></app-header>
+<app-header *ngIf="!hideIndexHeader"></app-header>
+<!-- Header for not index pages -->
+
+<div class="page-content" *ngIf="hideIndexHeader">
+    <div class="dotts">
+        <div class="header-top">
+            <header>          
+                    <div class="top-head ml-lg-auto text-center">
+                        
+                    </div>
+                <div class="clearfix"></div>
+                <navbar class="navBar"></navbar>   
+            </header>
+        </div>
+        <!--/banner-info-w3layouts-->
+        <div class="banner-info-w3layouts text-center">
+        </div>
+        <!--//banner-info-w3layouts-->            
+    </div>
+</div>
+
 <router-outlet></router-outlet>
+<app-footer></app-footer>

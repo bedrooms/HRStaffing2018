@@ -1,0 +1,9 @@
+{
+    "categories":[        
+        {"id":"1", "value":"Industrial"},
+        {"id":"2", "value":"Media"},
+        {"id":"3", "value":"Operations"},
+        {"id":"4", "value":"Tecnology"},
+        {"id":"5", "value":"Office"}
+]
+}

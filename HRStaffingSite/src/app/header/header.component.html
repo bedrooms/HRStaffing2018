@@ -1,5 +1,5 @@
-<div class="cont">
-<slideshow #slideshow 
+<div class="cont" *ngIf="!hideIndexHeader">
+<slideshow #slideshow
                [imageUrls]="imageUrls"
                [height]="height"
                [minHeight]="minHeight"
@@ -20,6 +20,6 @@
                [lazyLoad]="lazyLoad"
                [hideOnNoSlides]="hideOnNoSlides">               
     </slideshow>
-    <navbar class="navBar"></navbar>   
+    <navbar class="navBar bg"></navbar>   
     <app-header-search class="searchBar"></app-header-search>
 </div>

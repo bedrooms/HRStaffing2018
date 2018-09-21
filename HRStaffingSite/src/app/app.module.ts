@@ -19,6 +19,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ContactComponent } from './views/contact/contact.component';
 import { IndexBodyComponent } from './views/index-body/index-body.component';
+import { JobsListComponent } from './views/jobs-list/jobs-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { IndexBodyComponent } from './views/index-body/index-body.component';
     HeaderSearchComponent,
     NavbarComponent,
     ContactComponent,
-    IndexBodyComponent
+    IndexBodyComponent,
+    JobsListComponent
   ],
   imports: [
     BrowserModule,

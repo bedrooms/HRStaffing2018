@@ -14,12 +14,19 @@ import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 export class AppComponent {
   title = 'HRStaffingSite';
   HideHeader = false;
+ hideIndexHeader:boolean;  
+
   constructor (r: Router){
     r.events.forEach((event) => {
       if(event instanceof NavigationStart) {
-        console.log("event -->", event);
-        console.log("event.url -->", event.url);
+        if(event instanceof NavigationStart) {
+                if(event.url == "/home" || event.url == "/" ){
+                  this.hideIndexHeader = false;                  
+                } else{
+                  this.hideIndexHeader = true;                  
+                }
       }
+    }
       // NavigationEnd
       // NavigationCancel
       // NavigationError
