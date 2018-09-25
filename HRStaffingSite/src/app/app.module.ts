@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {SlideshowModule} from 'ng-simple-slideshow';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ContactComponent } from './views/contact/contact.component';
 import { IndexBodyComponent } from './views/index-body/index-body.component';
 import { JobsListComponent } from './views/jobs-list/jobs-list.component';
+import { JobelementListComponent } from './jobelement-list/jobelement-list.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,14 @@ import { JobsListComponent } from './views/jobs-list/jobs-list.component';
     NavbarComponent,
     ContactComponent,
     IndexBodyComponent,
-    JobsListComponent
+    JobsListComponent,
+    JobelementListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SlideshowModule
+    SlideshowModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent]
