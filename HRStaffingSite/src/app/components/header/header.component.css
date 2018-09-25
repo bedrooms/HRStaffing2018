@@ -12,7 +12,7 @@
   color: white;
   font-size: 16px;
   width: 100%;  
-  background: url(../../../src/assets/images/dots.png);
+  background: url(../../../../src/assets/images/dots.png);
   height: 30%;
 }
 
@@ -26,6 +26,6 @@
     font-size: 16px;
     width: 100%;
     border: none;
-    background: url(../../../src/assets/images/dots.png);
+    background: url(../../../../src/assets/images/dots.png);
     height: 70%;
   }

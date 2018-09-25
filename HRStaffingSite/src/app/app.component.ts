@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { CategoriesComponent } from './categories/categories.component';
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 
 @Component({

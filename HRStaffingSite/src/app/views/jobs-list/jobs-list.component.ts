@@ -34,11 +34,11 @@ export class JobsListComponent implements OnInit {
   }
 
   private getCategoriesJSON(){
-    return this.http.get("./assets/jsonResources/categories.json")
+    return this.http.get("./../assets/jsonResources/categories.json")
   }
 
   private getJobsListJSON(){
-    return this.http.get("./assets/jsonResources/jobs.json")
+    return this.http.get("./../assets/jsonResources/jobs.json")
   }
 
 }
