@@ -1,9 +1,9 @@
 {
     "categories":[        
         {"id":"1", 
-         "value":"Multimedia", 
+         "categoryTitle":"Multimedia", 
          "tags":"Arts, Design, Media",
-         "description": ["<h5 class='j-b mb-3'>Multimedia specialists: job description</h5>",
+         "categoryDescription": ["<h5 class='j-b mb-3'>Multimedia specialists: job description</h5>",
             "<p>Technology based multimedia products such as websites, DVDs, and computer games that combine text with sounds,",
             "pictures, graphics, video-clips, virtual reality and digital animation.",
             "<p class='mt-2'><b>What does a multimedia specialist do?</b> Typical employers | Qualifications and training | Key skills",
@@ -22,6 +22,7 @@
         {"id":"2", "value":"Media"},
         {"id":"3", "value":"Operations"},
         {"id":"4", "value":"Tecnology"},
-        {"id":"5", "value":"Office"}
+        {"id":"5", "value":"Office"},
+        {"id":"6", "value":"Education"}
 ]
 }

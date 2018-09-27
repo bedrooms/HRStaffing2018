@@ -6,7 +6,7 @@
                 <div class="user-detail-info text-center">                   
                     <div class="user-content-info emply-resume-info text-center mt-4">
                         <h4>
-                            <a href="#">{{categoryTitle}}</a>
+                            <a href="#">{{_category.categoryTitle}}</a>
                         </h4>
                         <div class="skills-info my-4">                           
                             <span class="mx-3">Last Update: Month 00 00</span>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="qual-info">
                         <h4>Categories</h4>
-                        <p>{{tags}}</p>
+                        <p>{{_category.tags}}</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>                
@@ -55,9 +55,9 @@
     <!---728x90--->
             <!--/history -->
             <div class="candidate-history-info mt-5">
-                <h5 class="j-b mb-5">Jobs from {{categoryTitle}}</h5>
+                <h5 class="j-b mb-5">Jobs from {{_category.categoryTitle}}</h5>
                 <div class="candidate-story-grid">                  
-                    <jobelement-list></jobelement-list>
+                    <jobelement-list *ngFor="let jobObj of _jobs" [_jobObject]="jobObj" ></jobelement-list>
                 </div>
                 <!---//network-->
             </div>
