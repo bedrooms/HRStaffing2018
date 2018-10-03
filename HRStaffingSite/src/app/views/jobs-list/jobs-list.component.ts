@@ -16,10 +16,9 @@ export class JobsListComponent implements OnInit {
   tags:string;  
   _jobs : Job[];
 
-
   constructor(private route: ActivatedRoute, 
               private http: HttpClient, 
-              private _category : Category
+              public _category : Category
              ) {
     this.route.params.subscribe( params => this.loadCategoryList(params['idCategory']));
    }
@@ -28,22 +27,13 @@ export class JobsListComponent implements OnInit {
   }
 
   loadCategoryList(category : number){
-    this.getCategoriesJSON().subscribe(data => {     
-      let categ = <Category[]>data["categories"];
-      //create category rows
-      
-      let catrow = categ.slice(0,4);
-      console.log("catrow -->", catrow);
-      
-      data["categories"].filter( cat => cat.id === category).map( res => this._category = res);
+    this.getCategoriesJSON().subscribe(data => {        
+      data["categories"].filter( cat => cat.id === category).map( res => this._category = res);    
       this.categoryDescription = this._category.categoryDescription.join("\n");   
-      this.loadJobsByCategory(category); 
-      
-      
-
-
+      this.loadJobsByCategory(category);     
     })
   }
+  
 
   loadJobsByCategory(category : number){
     this.getJobsListJSON().subscribe(data => {        

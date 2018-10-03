@@ -3,6 +3,9 @@
         {"id":"1", 
          "categoryTitle":"Multimedia", 
          "tags":"Arts, Design, Media",
+         "image":"assets/images/p1.jpg",
+         "icon":"fa-bullhorn",    
+         "color":"",     
          "categoryDescription": ["<h5 class='j-b mb-3'>Multimedia specialists: job description</h5>",
             "<p>Technology based multimedia products such as websites, DVDs, and computer games that combine text with sounds,",
             "pictures, graphics, video-clips, virtual reality and digital animation.",
@@ -19,10 +22,40 @@
             "<li>testing products for errors and making amendments.</li>",
             "</p>"
              ]},
-        {"id":"2", "value":"Media"},
-        {"id":"3", "value":"Operations"},
-        {"id":"4", "value":"Tecnology"},
-        {"id":"5", "value":"Office"},
-        {"id":"6", "value":"Education"}
+        {"id":"2", 
+         "categoryTitle":"Acounting", 
+         "tags":"Arts, Design, Media",
+         "image":"assets/images/p3.jpg",
+         "icon":"fa-hands-helping",
+         "color":"view2"
+        },
+        {"id":"3", 
+         "categoryTitle":"Operations", 
+         "tags":"Arts, Design, Media",
+         "image":"assets/images/p4.jpg",
+         "icon":"fa-users",
+         "color":"view3"
+        },
+        {"id":"4", 
+         "categoryTitle":"Tecnology", 
+         "tags":"Arts, Design, Media",
+         "image":"",
+         "icon":"fa-chalkboard-teacher",
+         "color":"view4"
+        },
+        {"id":"5", 
+         "categoryTitle":"Office", 
+         "tags":"Arts, Design, Media",
+         "image":"",
+         "icon":"fa-briefcase",
+         "color":"view5"
+        },
+        {"id":"6", 
+         "categoryTitle":"Education", 
+         "tags":"Arts, Design, Media",
+         "image":"assets/images/p2.jpg",
+         "icon":"fa-graduation-cap",
+         "color":""
+        }
 ]
 }

@@ -1,0 +1,22 @@
+.contHR {
+   
+  }
+
+.contHR .logoHR {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: transparent;
+    font-size: 16px;
+    width: 10%;      
+    height: 30%;
+  }
+
+  .cont .logoIMG{
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+}

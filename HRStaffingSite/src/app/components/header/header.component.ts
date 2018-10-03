@@ -15,7 +15,7 @@ export class HeaderComponent {
     { url: 'assets/images/slider4.jpg' },
     { url: 'assets/images/slider2.jpg' },    
     { url: 'assets/images/slider6.jpg'},    
-    { url: 'assets/images/slider1.jpg' }
+    { url: 'assets/images/slider11.jpg' }
   ];
   height: string = '800px';
   minHeight: string;
@@ -39,7 +39,7 @@ export class HeaderComponent {
   width: string = '100%';
 
   public imageSources: string[] = [
-    'assets/images/1.jpg',
+    'assets/images/11.jpg',
     'assets/images/2.jpg',
     'assets/images/3.jpg'
  ];
