@@ -1,7 +1,14 @@
 import * as functions from 'firebase-functions';
-import sendgrid = require('sendgrid');
-
 const nodemailer = require('nodemailer');
+
+// transporter.sendMail(HelperOptions, (error, info) => {
+//     console.log("Transporter Send Mail");
+//     if(error){
+//         console.log(error);
+//     }
+//     console.log("SEND!");
+//     console.log(info);
+// })
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -12,32 +19,29 @@ var transporter = nodemailer.createTransport({
 
 });
 
-let HelperOptions = {
-    from:'fsdfsd <memfard@gmail.com>',
-    to: 'fsdfsd <memfard@gmail.com>',
-    subject: 'asdasd',
-    text: 'dasdasdasd'
-};
-
-transporter.sendMail(HelperOptions, (error, info) => {
-    if(error){
-        console.log(error);
-    }
-    console.log("SEND!");
-    console.log(info);
-})
-
 
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
 
-export const helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!");
- transporter.sendMail(HelperOptions, (error, info) => {
-    if(error){
-        console.log(error);
-    }
-    console.log("SEND!");
-    console.log(info);
-})
+export const SendMail = functions.https.onRequest((request, response) => { 
+    console.log("Send Mail request --> ", request.query);
+    var mailFrom = request.query.mailfrom;
+    var mailTo = request.query.mailto;
+    var mailFromName = request.query.mailfromname;
+    var subject = request.query.subject;
+    var mailText = request.query.mail;
+    
+    let HelperOptions = {
+        from: mailFromName + ' <'+ mailFrom +'>',
+        to: mailTo,
+        subject: subject,
+        text: mailText
+    };
+
+    transporter.sendMail(HelperOptions, (error, info) => {
+        if(error){
+            console.log(error);
+        }
+        console.log("Mail Sended");
+    })
 });

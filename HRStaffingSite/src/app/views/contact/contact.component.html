@@ -64,7 +64,7 @@
 					<div class="col-md-6 main_grid_contact">
 						<div class="form">
 							<h4 class="mb-4 text-left">Send us a message</h4>
-							<form action="#" method="post">
+							<form method="post">
 								<div class="form-group">
 									<label class="my-2">Name</label>
 									<input class="form-control" type="text" name="Name" placeholder="" required="">
@@ -78,7 +78,7 @@
 									<textarea id="textarea" placeholder=""></textarea>
 								</div>
 								<div class="input-group1">
-									<input class="form-control" type="submit" >
+									<input class="form-control" type="submit" (click)="sendMail()">
 								</div>
 							</form>
 						</div>
@@ -86,4 +86,5 @@
 				</div>
 			</div>
 		</div>
+		<input type="submit" (click)="sendMail()">
 	</section>

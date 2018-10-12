@@ -4,7 +4,6 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CategoriesComponent } from './components/categories/categories.component';
