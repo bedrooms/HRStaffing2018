@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -48,7 +50,8 @@ import { JobelementListComponent } from './components/jobelement-list/jobelement
     BrowserModule,
     AppRoutingModule,
     SlideshowModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent]
