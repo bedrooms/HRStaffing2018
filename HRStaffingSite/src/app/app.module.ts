@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -50,7 +51,8 @@ import { JobelementListComponent } from './components/jobelement-list/jobelement
     AppRoutingModule,
     SlideshowModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent]
