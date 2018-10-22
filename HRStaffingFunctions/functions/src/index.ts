@@ -1,5 +1,6 @@
 import * as functions from 'firebase-functions';
 const nodemailer = require('nodemailer');
+const hbs = require('nodemailer-express-handlebars');
 
 // transporter.sendMail(HelperOptions, (error, info) => {
 //     console.log("Transporter Send Mail");
@@ -29,24 +30,38 @@ export const SendMail = functions.https.onRequest((request, response) => {
     response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
     response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin");
 
-    console.log("Send Mail request --> ", request.query);
-    console.log("request --> ", request);
+    // console.log("Send Mail request --> ", request.query);
+    // console.log("request --> ", request);
     var mailFrom = request.query.mailfrom;
-    var mailTo = request.query.mailto;
+    var mailTo = 'glainskurt@gmail.com';
     var mailFromName = request.query.mailfromname;
-    var subject = request.query.subject;
+    var subject = 'Contact Us Mail';
     var mailText = request.query.mail;
+
+    transporter.use('compile', hbs({
+        viewPath:'src/content',
+        extName:'.hbs'
+    }))
     
     let HelperOptions = {
         from: mailFromName + ' <'+ mailFrom +'>',
         to: mailTo,
         subject: subject,
-        text: mailText
+        template: 'mailTemplate',
+        context:{
+            mailFromName: mailFromName,
+            mailFrom: mailFrom,
+            message : mailText,
+            nameTo: 'Raral Gonzalez S.'
+        }
+        // text: mailText,
+        // html: ''
     };
 
+    
+
     transporter.sendMail(HelperOptions).then(() => {      
-        console.log("response -->", response);
-        
+        //console.log("response -->", response);        
         return response.status(200).send("Mail sent");
     })
     .catch(error => {
