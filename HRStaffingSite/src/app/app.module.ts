@@ -4,6 +4,9 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from 'angularfire2'
+import { AngularFirestoreModule } from 'angularfire2/firestore'
+import { environment } from '../environments/environment'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,6 +28,15 @@ import { IndexBodyComponent } from './views/index-body/index-body.component';
 import { JobsListComponent } from './views/jobs-list/jobs-list.component';
 import { JobelementListComponent } from './components/jobelement-list/jobelement-list.component';
 
+import { MailService } from './shared/service/mailService'
+import { JobsService } from './shared/service/dbJobsService';
+import { CategoriesService } from './shared/service/dbCategoriesService';
+import { from } from 'rxjs';
+
+import { ManageComponent } from './manage/manage.component';
+import { JobsManageComponent } from './manage/components/jobs-manage/jobs-manage.component';
+import { CategoriesManageComponent } from './manage/components/categories-manage/categories-manage.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +56,10 @@ import { JobelementListComponent } from './components/jobelement-list/jobelement
     ContactComponent,
     IndexBodyComponent,
     JobsListComponent,
-    JobelementListComponent
+    JobelementListComponent,
+    ManageComponent,
+    JobsManageComponent,
+    CategoriesManageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +67,12 @@ import { JobelementListComponent } from './components/jobelement-list/jobelement
     SlideshowModule,
     HttpClientModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'hr-staff'),
+    AngularFirestoreModule
+    
   ],
-  providers: [],
+  providers: [MailService, JobsService, CategoriesService],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent]
 })
 export class AppModule { }

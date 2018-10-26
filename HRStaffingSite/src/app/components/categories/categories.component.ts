@@ -22,7 +22,7 @@ export class CategoriesComponent {
 
   loadCategoryList(){
     this.getCategoriesJSON().subscribe(data => {   
-      let categ = <Category[]>data["categories"];
+      let categ = <Category[]>data["categories"].filter(category => category.list==="true");
       //create category rows
      this.fillCategories(categ); 
     })
@@ -46,7 +46,5 @@ export class CategoriesComponent {
     }else{
       this.categoriesRowCont.push(_CategoriesRow);
     }
-
-    console.log("this.categoriesRowCont -->", this.categoriesRowCont);
   }
 }

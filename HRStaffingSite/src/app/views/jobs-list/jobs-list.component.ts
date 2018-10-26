@@ -3,47 +3,116 @@ import {ActivatedRoute} from "@angular/router";
 import { HttpClient } from '@angular/common/http'; 
 import { Category } from '../../shared/model/category'
 import { Job } from '../../shared/model/job'
-
+import { URLSearchParams, Http,  Headers } from '@angular/http';
+import { MailService } from '../../shared/service/mailService';
+import { JobsService } from '../../shared/service/dbJobsService';
 
 @Component({
   selector: 'app-jobs-list',
   templateUrl: './jobs-list.component.html',
   styleUrls: ['./jobs-list.component.css'],
   providers : [Category, Job]
+  
 })
+
+
 export class JobsListComponent implements OnInit { 
+  mail: string;
+  senderName: string;
+  message: string;
+  contactNumber: string;
+  allowSubmit: boolean = false;
+  subject: string = "Contact Business Network Mail";
+  numb : number = 0;
+
   categoryDescription : string;  
   tags:string;  
   _jobs : Job[];
+  callFrom: string;
 
   constructor(private route: ActivatedRoute, 
               private http: HttpClient, 
-              public _category : Category
+              public _category : Category,
+              private _http: Http,
+              private _mailService: MailService,
+              private _jobService : JobsService
              ) {
     this.route.params.subscribe( params => this.loadCategoryList(params['idCategory']));
    }
 
-  ngOnInit() {
+  
+  ngOnInit() {   
+    this.callFrom = "Apply now!";
+  }
+
+
+
+  sendMail(){
+    // let urlSearchParams = new URLSearchParams(); 
+    // var headers = new Headers();
+    // headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    // headers.append('Access-Control-Allow-Origin', '*');
+
+    // urlSearchParams.append('mailfrom', this.mail);
+    // urlSearchParams.append('mailfromname', this.senderName);
+    // urlSearchParams.append('mail', this.message);
+
+    // // LOCAL http://localhost:5000/hr-staff/us-central1/SendMail
+    // // SERVER https://us-central1-hr-staff.cloudfunctions.net/SendMail
+
+    // this._http.post('https://us-central1-hr-staff.cloudfunctions.net/SendMail', urlSearchParams, {headers :headers, params:urlSearchParams}).subscribe(
+    //   data => {
+    //     this.senderName = undefined;
+    //     this.message = undefined;
+    //     this.mail = undefined;
+    //     this.allowSubmit = false;
+    //   },
+    //   error => console.log("Error -->", error)
+    // )
+
+    this._mailService.sendMail(this.mail,this.senderName,this.message,this.subject, this.contactNumber).then(data => {
+      console.log("data -->", data);
+      if(data.ok){
+          this.senderName = undefined;
+          this.message = undefined;
+          this.mail = undefined;
+          this.allowSubmit = false;
+        }
+      }
+    );
   }
 
   loadCategoryList(category : number){
-    this.getCategoriesJSON().subscribe(data => {        
-      data["categories"].filter( cat => cat.id === category).map( res => this._category = res);    
-      this.categoryDescription = this._category.categoryDescription.join("\n");   
-      this.loadJobsByCategory(category);     
+    this.getCategoriesJSON().subscribe(data => {   
+        data["categories"].filter( cat => cat.id === category).map( res => this._category = res);    
+        this.categoryDescription = this._category.categoryDescription.join("\n");   
+        this.loadJobsByCategory(category);  
     })
   }
   
 
   loadJobsByCategory(category : number){
-    this.getJobsListJSON().subscribe(data => {        
-      let datares = <Job[]>data["jobs"].filter( job => job.categoryId === category);
-      console.log("datares--> ", datares);
-
+    this._jobService.getJobs().subscribe(data => {  
+      var  datares;
+      if(category != 0){
+        datares = <Job[]>data.filter( job => job.categoryId === category);
+      }else{
+        datares = <Job[]>data;
+      }    
       this._jobs = datares;
-
-      console.log("this._jobs -->", this._jobs);
     })
+  }
+
+  onChange() {
+    if((this.mail == undefined || this.mail == "") || 
+       (this.senderName == undefined || this.senderName == "") || 
+       (this.message == undefined || this.message == "") ||
+       (this.contactNumber == undefined || this.contactNumber == "")){
+        this.allowSubmit = false;
+    } else{
+      this.allowSubmit = true;
+    }
+
   }
 
   private getCategoriesJSON(){

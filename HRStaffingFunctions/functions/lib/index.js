@@ -30,8 +30,9 @@ exports.SendMail = functions.https.onRequest((request, response) => {
     var mailFrom = request.query.mailfrom;
     var mailTo = 'glainskurt@gmail.com';
     var mailFromName = request.query.mailfromname;
-    var subject = 'Contact Us Mail';
+    var subject = request.query.subject;
     var mailText = request.query.mail;
+    var contactNumber = request.query.contactNumber;
     transporter.use('compile', hbs({
         viewPath: 'src/content',
         extName: '.hbs'
@@ -45,7 +46,8 @@ exports.SendMail = functions.https.onRequest((request, response) => {
             mailFromName: mailFromName,
             mailFrom: mailFrom,
             message: mailText,
-            nameTo: 'Raral Gonzalez S.'
+            contactNumber: contactNumber,
+            nameTo: 'Rafal Gonzalez S.'
         }
         // text: mailText,
         // html: ''

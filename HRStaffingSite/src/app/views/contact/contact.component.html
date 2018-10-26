@@ -78,7 +78,7 @@
 									<textarea id="textarea" [(ngModel)]="message" placeholder="" name="message" (ngModelChange)="onChange()"></textarea>
 								</div>
 								<div class="input-group1">
-									<button class="form-control-button" [disabled]="!allowSubmit" > Send Mail </button>
+									<button class="form-control-button" data-toggle="modal" data-target="#ModalCenterMessage" [disabled]="!allowSubmit" (click)="sendMail()" > Send Mail </button>
 								</div>
 								<!-- " -->
 							</div>

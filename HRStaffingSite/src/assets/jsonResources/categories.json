@@ -1,5 +1,29 @@
 {
-    "categories":[        
+    "categories":[     
+        {"id":"0", 
+         "categoryTitle":"All Categories", 
+         "tags":"Arts, Design, Media",
+         "image":"",
+         "icon":"",
+         "color":"",
+         "categoryDescription": ["<h5 class='j-b mb-3'>All Categories</h5>",
+            "<p>Technology based multimedia products such as websites, DVDs, and computer games that combine text with sounds,",
+            "pictures, graphics, video-clips, virtual reality and digital animation.",
+            "<p class='mt-2'><b>What does a multimedia specialist do?</b> Typical employers | Qualifications and training | Key skills",
+            "Key responsibilities of the job include: </p>",
+            "<p class='mt-2'>Key responsibilities of the job include:</p>",
+            "<p class='mt-2'>",
+            "<li>meeting and liaising with clients to discuss briefs, requirements and project progress</li>",
+            "<li>making technical recommendations</li>",
+            "<li>producing, demonstrating and receiving feedback about ideas</li>",
+            "<li>creating multimedia designs in liaison with animators, programmers, writers, video producers, sound engineers and artists</li>",
+            "<li>developing and using skills and expertise in appropriate design packages such as Photoshop, In Design and After Effects</li>",
+            "<li>keeping up-to-date with technological and software developments</li>",
+            "<li>testing products for errors and making amendments.</li>",
+            "</p>"
+             ],
+         "list":"false"
+        },   
         {"id":"1", 
          "categoryTitle":"Multimedia", 
          "tags":"Arts, Design, Media",
@@ -21,41 +45,48 @@
             "<li>keeping up-to-date with technological and software developments</li>",
             "<li>testing products for errors and making amendments.</li>",
             "</p>"
-             ]},
+             ],
+             "list":"true"
+         },
         {"id":"2", 
          "categoryTitle":"Acounting", 
          "tags":"Arts, Design, Media",
          "image":"assets/images/p3.jpg",
          "icon":"fa-hands-helping",
-         "color":"view2"
+         "color":"view2",
+         "list":"true"
         },
         {"id":"3", 
          "categoryTitle":"Operations", 
          "tags":"Arts, Design, Media",
          "image":"assets/images/p4.jpg",
          "icon":"fa-users",
-         "color":"view3"
+         "color":"view3",
+         "list":"true"
         },
         {"id":"4", 
          "categoryTitle":"Tecnology", 
          "tags":"Arts, Design, Media",
          "image":"",
          "icon":"fa-chalkboard-teacher",
-         "color":"view4"
+         "color":"view4",
+         "list":"true"
         },
         {"id":"5", 
          "categoryTitle":"Office", 
          "tags":"Arts, Design, Media",
          "image":"",
          "icon":"fa-briefcase",
-         "color":"view5"
+         "color":"view5",
+         "list":"true"
         },
         {"id":"6", 
          "categoryTitle":"Education", 
          "tags":"Arts, Design, Media",
          "image":"assets/images/p2.jpg",
          "icon":"fa-graduation-cap",
-         "color":""
+         "color":"",
+         "list":"true"
         }
 ]
 }

@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="main_grid_contact emp-single-page mt-5">
+    <div class="form emp-single">
+        <i data-toggle="modal" data-target="#addNewJob" class="fas fa-plus-circle button-new"></i>
+        <h4 class="mb-4 text-left">Manage Jobs</h4>
+       
+        <jobelement-list [_callFrom]="callFrom" *ngFor="let jobObj of _jobs" [_jobObject]="jobObj" ></jobelement-list>
+
+    </div>
+</div>
+</div>
+
+<!-- New Job Modal-->
+<div class="modal fade" id="addNewJob" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login px-4 mx-auto mw-100">
+                    <h5 class="text-center mb-4">Create new Job</h5>
+                    <form>
+                        <div class="form-group">
+                            <label>Id</label>
+                            <input type="number" class="form-control" [(ngModel)]="_job.id" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <input type="text" class="form-control" [(ngModel)]="_job.categoryId" name="category">
+                        </div>
+                        <div class="form-group">
+                            <label>Job Title</label>
+                            <input type="text" class="form-control" [(ngModel)]="_job.jobTitle" name="jobTitle">
+                        </div>
+                        <div class="form-group">
+                            <label>Company</label>
+                            <input type="text" class="form-control" [(ngModel)]="_job.company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" class="form-control" [(ngModel)]="_job.locationCity" name="city">
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" class="form-control" [(ngModel)]="_job.locationState" name="state">
+                        </div>
+                        <div class="form-group">
+                            <label>Salary</label>
+                            <input type="text" class="form-control" [(ngModel)]="_job.salary" name="salary">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea type="text" class="form-control" [(ngModel)]="_job.description" name="description"></textarea>
+                        </div>
+                        <button type="submit" data-dismiss="modal" class="btn btn-primary submit mb-4" (click)="saveNewJob()">Register</button>                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

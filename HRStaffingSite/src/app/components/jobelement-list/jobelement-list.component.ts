@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Job } from '../../shared/model/job'
 
 @Component({
@@ -6,11 +6,12 @@ import { Job } from '../../shared/model/job'
   templateUrl: './jobelement-list.component.html',
   styleUrls: ['./jobelement-list.component.css']
 })
-export class JobelementListComponent implements OnInit {
+export class JobelementListComponent {
+  @Input() _callFrom;
   @Input() _jobObject : Job;
-  constructor() { }
+  constructor() {   
+  }
 
   ngOnInit() {
   }
-
 }
