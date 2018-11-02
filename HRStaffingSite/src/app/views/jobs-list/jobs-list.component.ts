@@ -3,9 +3,9 @@ import {ActivatedRoute} from "@angular/router";
 import { HttpClient } from '@angular/common/http'; 
 import { Category } from '../../shared/model/category'
 import { Job } from '../../shared/model/job'
-import { URLSearchParams, Http,  Headers } from '@angular/http';
 import { MailService } from '../../shared/service/mailService';
 import { JobsService } from '../../shared/service/dbJobsService';
+import { CategoriesService } from '../../shared/service/dbCategoriesService';
 
 @Component({
   selector: 'app-jobs-list',
@@ -33,9 +33,9 @@ export class JobsListComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
               private http: HttpClient, 
               public _category : Category,
-              private _http: Http,
               private _mailService: MailService,
-              private _jobService : JobsService
+              private _jobService : JobsService,
+              private _categoryService : CategoriesService
              ) {
     this.route.params.subscribe( params => this.loadCategoryList(params['idCategory']));
    }
@@ -44,8 +44,6 @@ export class JobsListComponent implements OnInit {
   ngOnInit() {   
     this.callFrom = "Apply now!";
   }
-
-
 
   sendMail(){
     // let urlSearchParams = new URLSearchParams(); 
@@ -83,9 +81,9 @@ export class JobsListComponent implements OnInit {
   }
 
   loadCategoryList(category : number){
-    this.getCategoriesJSON().subscribe(data => {   
-        data["categories"].filter( cat => cat.id === category).map( res => this._category = res);    
-        this.categoryDescription = this._category.categoryDescription.join("\n");   
+    this._categoryService.getCategories().subscribe(data => {  
+        data.filter( cat => cat.id == category).map( res => this._category = res); 
+        this.categoryDescription = this._category.categoryDescription; 
         this.loadJobsByCategory(category);  
     })
   }
@@ -115,12 +113,12 @@ export class JobsListComponent implements OnInit {
 
   }
 
-  private getCategoriesJSON(){
-    return this.http.get("./../assets/jsonResources/categories.json")
-  }
+  // private getCategoriesJSON(){
+  //   return this.http.get("./../assets/jsonResources/categories.json")
+  // }
 
-  private getJobsListJSON(){
-    return this.http.get("./../assets/jsonResources/jobs.json")
-  }
+  // private getJobsListJSON(){
+  //   return this.http.get("./../assets/jsonResources/jobs.json")
+  // }
 
 }

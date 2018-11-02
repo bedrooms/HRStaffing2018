@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2'
 import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { environment } from '../environments/environment'
+import { NgxEditorModule } from 'ngx-editor';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -60,6 +61,7 @@ import { CategoriesManageComponent } from './manage/components/categories-manage
     ManageComponent,
     JobsManageComponent,
     CategoriesManageComponent
+     
   ],
   imports: [
     BrowserModule,
@@ -69,8 +71,8 @@ import { CategoriesManageComponent } from './manage/components/categories-manage
     HttpModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'hr-staff'),
-    AngularFirestoreModule
-    
+    AngularFirestoreModule,
+    NgxEditorModule
   ],
   providers: [MailService, JobsService, CategoriesService],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent]

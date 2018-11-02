@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; 
 import { Category } from '../../shared/model/category'
+import { CategoriesService } from '../../shared/service/dbCategoriesService';
 
 @Component({
   selector: 'app-categories',
@@ -13,7 +14,8 @@ export class CategoriesComponent {
   categoriesRowCont: object[];
   totalCategoriesInserted: number = 0;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private _categoriesService : CategoriesService) {
     this.categoriesRowCont = new Array;
     this.categoriesRow = new Array;
 
@@ -21,17 +23,22 @@ export class CategoriesComponent {
   }
 
   loadCategoryList(){
-    this.getCategoriesJSON().subscribe(data => {   
-      let categ = <Category[]>data["categories"].filter(category => category.list==="true");
+    
+    this._categoriesService.getCategories().subscribe(data => {   
+      this.categoriesRowCont = new Array;
+      this.categoriesRow = new Array;
+      this.totalCategoriesInserted = 0;
+
+      let categ = <Category[]>data.filter(cat => cat.list === true);
       //create category rows
      this.fillCategories(categ); 
     })
   }
 
 
-  private getCategoriesJSON(){
-    return this.http.get("./../assets/jsonResources/categories.json")
-  }
+  // private getCategoriesJSON(){
+  //   return this.http.get("./../assets/jsonResources/categories.json")
+  // }
 
   fillCategories(_CategoriesRow : object[]){
 

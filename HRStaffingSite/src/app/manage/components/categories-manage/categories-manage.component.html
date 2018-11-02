@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="main_grid_contact emp-single-page mt-5">
+    <div class="col-lg-12 text-info-sec">   
       <div class="form emp-single">
-          <i data-toggle="modal" data-target="#addNewJob" class="fas fa-plus-circle button-new"></i>
+          <i data-toggle="modal" data-target="#addNewCategory" class="fas fa-plus-circle button-new"></i>
           <h4 class="mb-4 text-left">Manage Categories</h4>
          
           <jobelement-list [_callFrom]="callFrom" *ngFor="let categoriesObj of _categories" [_jobObject]="categoriesObj" ></jobelement-list>
@@ -11,7 +11,7 @@
   </div>
   
   <!-- New Job Modal-->
-  <div class="modal fade" id="addNewJob" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal fade" id="addNewCategory" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
               <div class="modal-header text-center">
@@ -21,41 +21,42 @@
               </div>
               <div class="modal-body">
                   <div class="login px-4 mx-auto mw-100">
-                      <h5 class="text-center mb-4">Create new Job</h5>
+                      <h5 class="text-center mb-4">Create new Category</h5>
                       <form>
                           <div class="form-group">
                               <label>Id</label>
-                              <input type="number" class="form-control" [(ngModel)]="_job.id" name="id">
+                              <input type="number" class="form-control" [(ngModel)]="_category.id" name="id">
                           </div>
                           <div class="form-group">
-                              <label>Category</label>
-                              <input type="text" class="form-control" [(ngModel)]="_job.categoryId" name="category">
+                              <label>Category Title</label>
+                              <input type="text" class="form-control" [(ngModel)]="_category.categoryTitle" name="categoryTitle">
                           </div>
                           <div class="form-group">
-                              <label>Job Title</label>
-                              <input type="text" class="form-control" [(ngModel)]="_job.jobTitle" name="jobTitle">
+                              <label>Tags</label>
+                              <input type="text" class="form-control" [(ngModel)]="_category.tags" name="tags">
                           </div>
                           <div class="form-group">
-                              <label>Company</label>
-                              <input type="text" class="form-control" [(ngModel)]="_job.company" name="company">
+                              <label>Image</label>
+                              <input type="text" class="form-control" [(ngModel)]="_category.image" name="image">
                           </div>
                           <div class="form-group">
-                              <label>City</label>
-                              <input type="text" class="form-control" [(ngModel)]="_job.locationCity" name="city">
+                              <label>Icon</label>
+                              <input type="text" class="form-control" [(ngModel)]="_category.icon" name="icon">
                           </div>
                           <div class="form-group">
-                              <label>State</label>
-                              <input type="text" class="form-control" [(ngModel)]="_job.locationState" name="state">
+                              <label>Color</label>
+                              <input type="text" class="form-control" [(ngModel)]="_category.color" name="color">
                           </div>
                           <div class="form-group">
-                              <label>Salary</label>
-                              <input type="text" class="form-control" [(ngModel)]="_job.salary" name="salary">
+                              <label>Show in list?</label>
+                              <input type="checkbox" class="form-control" [(ngModel)]="_category.list" name="list">
                           </div>
                           <div class="form-group">
-                              <label>Description</label>
-                              <textarea type="text" class="form-control" [(ngModel)]="_job.description" name="description"></textarea>
+                              <label>Category Description</label>
+                              <app-ngx-editor class="form-control" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="_category.categoryDescription" name="categoryDescription"></app-ngx-editor>
+                              <!-- <textarea type="text" class="form-control" [(ngModel)]="_category.categoryDescription" name="categoryDescription"></textarea> -->
                           </div>
-                          <button type="submit" data-dismiss="modal" class="btn btn-primary submit mb-4" (click)="saveNewJob()">Register</button>                       
+                          <button type="submit" data-dismiss="modal" class="btn btn-primary submit mb-4" (click)="saveNewCategory()">Register</button>                       
                       </form>
                   </div>
               </div>

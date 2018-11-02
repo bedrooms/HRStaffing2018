@@ -1,13 +1,11 @@
 <div class="container">
-  <div class="main_grid_contact emp-single-page mt-5">
-    <div class="form emp-single">
-        <i data-toggle="modal" data-target="#addNewJob" class="fas fa-plus-circle button-new"></i>
-        <h4 class="mb-4 text-left">Manage Jobs</h4>
-       
-        <jobelement-list [_callFrom]="callFrom" *ngFor="let jobObj of _jobs" [_jobObject]="jobObj" ></jobelement-list>
-
+    <div class="col-lg-12 text-info-sec">   
+        <div class="form emp-single">
+            <i data-toggle="modal" data-target="#addNewJob" class="fas fa-plus-circle button-new"></i>
+            <h4 class="mb-4 text-left">Jobs</h4>                               
+            <jobelement-list [_callFrom]="callFrom" *ngFor="let jobObj of _jobs" [_jobObject]="jobObj" ></jobelement-list>
+        </div>
     </div>
-</div>
 </div>
 
 <!-- New Job Modal-->
@@ -53,7 +51,8 @@
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea type="text" class="form-control" [(ngModel)]="_job.description" name="description"></textarea>
+                            <app-ngx-editor class="form-control" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="_job.description" name="description"></app-ngx-editor>
+                            <!-- <textarea type="text" class="form-control" [(ngModel)]="_job.description" name="description"></textarea> -->
                         </div>
                         <button type="submit" data-dismiss="modal" class="btn btn-primary submit mb-4" (click)="saveNewJob()">Register</button>                       
                     </form>
